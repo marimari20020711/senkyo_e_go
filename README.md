@@ -1,4 +1,7 @@
 # 選挙へgo！
+
+Figma：https://www.figma.com/design/TIhDNtwr7bzGBQDbmMyRhQ/senkyo_e_go?node-id=0-1&p=f&t=bmmng5yYRy4CHoSd-0
+
 ■サービス概要
 議員や法案の“見える化”アプリ。議員の発言や法案提出などの活動履歴を可視化し、AIで要点をやさしく解説。推し議員の特徴をレーダーチャートで分析し、似ている議員をレコメンド。とっつきやすくして、政治をもっと身近に、楽しく理解できます。
 
