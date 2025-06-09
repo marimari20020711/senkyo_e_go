@@ -73,12 +73,12 @@ Figma：https://www.figma.com/design/TIhDNtwr7bzGBQDbmMyRhQ/senkyo_e_go?node-id=
 　・発言内容 → 分かち書き＋TF-IDFスコア算出（treat, tf-idf-similarity など）
 　・Cosine類似度でスコア計算（Ruby処理 or Redisキャッシュ化）
 ・レーダーチャート　→　chartkick + groupdate
-・推し議員登録と活動通知　→　localStorage（JS）＋gon（Rails→JS）でログイン不要のローカル保存も可能
+・ログイン設定はSNS投稿、推し議員登録で実装　→　Devise + OmniAuth
 ・SNS・YouTube・ニュースの一般投稿表示
 　・X連携：X API　→ Twitter API v2 の「Essential」プランで月1500件制限付きを利用
 　・YouTube連携：YouTube Data API で議員名検索＋動画タイトル・説明文で分類
 　・ニュース連携：RSSで取得
 ・デプロイはRender
-・（気軽に楽しめるようにするため、ログイン設定は無しの予定）
+
 
 
