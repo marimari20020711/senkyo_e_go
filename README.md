@@ -54,7 +54,7 @@ ER図：https://app.diagrams.net/#Hmarimari20020711%2Fsenkyo_e_go%2Fadd_README2%
 ・各種リンクの表示（政治資金収支報告書データベースなど）
 ・議員のX（旧Twitter）・YouTube公式アカウントの埋め込み表示
 ・一般人によるSNS・動画の議員関連投稿、ニュースの自動収集＆表示
-・ログイン設定はキーワード検索のみに実装する
+・ログイン設定（ゲストログイン）はキーワード検索のみに実装する
 
 【本リリース】
 
@@ -82,7 +82,8 @@ ER図：https://app.diagrams.net/#Hmarimari20020711%2Fsenkyo_e_go%2Fadd_README2%
 　・YouTube連携：YouTube Data API で議員名検索＋動画タイトル・説明文で分類
 　・ニュース連携：RSSで取得
 ・デプロイはRender
-・ログイン設定はキーワード検索、SNS投稿、推し議員登録で実装　→　Devise + OmniAuth（セキュリティ対策をして、最初はログインしなくても使えるようにリリースをする。今後状況次第でログイン機能追加も視野に入れる）
+・ログイン設定はキーワード検索　→　MVPでは簡易ゲストログインとしてhas_secure_password + bcryptのみで対応。
+今後SNS投稿、推し議員登録で実装　→　Devise + OmniAuth（セキュリティ対策をして、最初はログインしなくても使えるようにリリースをする。今後状況次第でログイン機能追加も視野に入れる）
 ・APIのBot対策 + レート制限（濫用防止）→　reCAPTCHABot判定（人間か確認）、Rack::Attackスパム・過剰アクセス制限
 
 
