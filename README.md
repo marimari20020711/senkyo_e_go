@@ -81,10 +81,7 @@ ER図：https://app.diagrams.net/#Hmarimari20020711%2Fsenkyo_e_go%2Fadd_README2%
 　・X連携：X API　→ Twitter API v2 の「Essential」プランで月1500件制限付きを利用
 　・YouTube連携：YouTube Data API で議員名検索＋動画タイトル・説明文で分類
 　・ニュース連携：RSSで取得
-・デプロイはRender
+・デプロイはfly.toml
 ・ログイン設定はキーワード検索　→　MVPでは簡易ゲストログインとしてhas_secure_password + bcryptのみで対応。
 今後SNS投稿、推し議員登録で実装　→　Devise + OmniAuth（セキュリティ対策をして、最初はログインしなくても使えるようにリリースをする。今後状況次第でログイン機能追加も視野に入れる）
 ・APIのBot対策 + レート制限（濫用防止）→　reCAPTCHABot判定（人間か確認）、Rack::Attackスパム・過剰アクセス制限
-
-
-
