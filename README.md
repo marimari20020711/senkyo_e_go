@@ -69,10 +69,10 @@ ER図：https://app.diagrams.net/#Hmarimari20020711%2Fsenkyo_e_go%2Fadd_README2%
 
 ■機能の実装方針（予定）
 ・検索はransack＋PostgreSQL＋stimulus-autocomplete：オートサジェスト（Rails7 + Turbo + Stimulus）
-・法案関連は議案情報（https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm）からスクレイピングで取得、AI要約、AIによるメリットデメリット表示（AIはOpenAI無料使用枠内）
+・法案関連は議案情報（https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm）からスクレイピングで取得、AI要約、AIによるメリットデメリット表示（AIはまずGPT4Allを試す。性能を確認して不十分ならOpenAIを制限付きで使用を検討、将来的にはpython埋め込みを考える。）
 ・国会発言AI要約
 　・国会会議録API（https://kokkai.ndl.go.jp/api.html）で対象議案を検索・発言を抽出（キーワードフィルタ）
-　・AIによる要約＋中立変換（AIはOpenAI無料使用枠内）
+　・AIによる要約＋中立変換（AIはまずGPT4Allを試す。性能を確認して不十分ならOpenAIを制限付きで使用を検討、将来的にはpython埋め込みを考える。）
 　・発言収集＋要約処理はActiveJob＋Sidekiqで非同期処理
 ・議員の類似度レコメンド
 　・発言内容 → 分かち書き＋TF-IDFスコア算出（treat, tf-idf-similarity など）
