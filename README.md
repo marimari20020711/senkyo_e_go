@@ -47,17 +47,18 @@ ER図：https://app.diagrams.net/#Hmarimari20020711%2Fsenkyo_e_go%2Fadd_README2%
 
 ■　機能候補
 【MVPリリース】
-・キーワード検索（オートサジェスト付き）（ログイン設定必要）
-・議員のプロフィール、活動のAI要点解説、法案提出・法案賛成反対・国会発言の履歴リスト
-・法案の漫画風ストーリー解説（4コマ or 簡易ストーリー）
-・法案のメリットデメリット表示
+・議員のプロフィール、法案提出・法案賛成反対・国会発言の履歴リスト
+・法案・議員・会派・発言の検索機能
 ・各種リンクの表示（政治資金収支報告書データベースなど）
+
+【本リリース】
+・活動のAI要点解説
 ・議員のX（旧Twitter）・YouTube公式アカウントの埋め込み表示
 ・一般人によるSNS・動画の議員関連投稿、ニュースの自動収集＆表示
 ・ログイン設定（ゲストログイン）はキーワード検索のみに実装する
-
-【本リリース】
-
+・法案の漫画風ストーリー解説（4コマ or 簡易ストーリー）
+・法案のメリットデメリット表示
+・キーワード検索（オートサジェスト付き）（ログイン設定必要）
 ・反対意見ナビ（法案に反対する議員・団体の理由をAI要約）
 ・推し議員登録機能（ログイン不要・ローカル保存）
 ・「推しと似た議員」レコメンド（簡易）（ログイン設定必要）
@@ -69,10 +70,11 @@ ER図：https://app.diagrams.net/#Hmarimari20020711%2Fsenkyo_e_go%2Fadd_README2%
 
 ■機能の実装方針（予定）
 ・検索はransack＋PostgreSQL＋stimulus-autocomplete：オートサジェスト（Rails7 + Turbo + Stimulus）
-・法案関連は議案情報（https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm）からスクレイピングで取得、AI要約、AIによるメリットデメリット表示（AIはまずGPT4Allを試す。性能を確認して不十分ならOpenAIを制限付きで使用を検討、将来的にはpython埋め込みを考える。）
+・法案関連は議案情報（https://www.shugiin.go.jp/internet/itdb_gian.nsf/html/gian/menu.htm）からスクレイピングで取得、AI要約、AIによるメリットデメリット表示（AIはまずLlama-3-ELYZA-JP-8Bを試す。）
+・議員情報はHPからGoogleスプレッドシートからCSV形式で保存、RailsでCSVを読み込んでDBに保存するタスクを実行
 ・国会発言AI要約
 　・国会会議録API（https://kokkai.ndl.go.jp/api.html）で対象議案を検索・発言を抽出（キーワードフィルタ）
-　・AIによる要約＋中立変換（AIはまずGPT4Allを試す。性能を確認して不十分ならOpenAIを制限付きで使用を検討、将来的にはpython埋め込みを考える。）
+　・AIによる要約＋中立変換（AIはまずLlama-3-ELYZA-JP-8Bを試す。）
 　・発言収集＋要約処理はActiveJob＋Sidekiqで非同期処理
 ・議員の類似度レコメンド
 　・発言内容 → 分かち書き＋TF-IDFスコア算出（treat, tf-idf-similarity など）
